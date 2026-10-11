@@ -1,0 +1,119 @@
+<main class="home-page">
+  <header class="top-bar">
+    <span class="brand">♡ made with love</span>
+    <span class="date-label">YOUR SPECIAL DAY ✿</span>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">TODAY IS ALL ABOUT YOU</p>
+
+    <h1>Happy Birthday,<br />
+      <span>my favourite human!</span>
+    </h1>
+
+    <p class="intro">
+      A little celebration of your beautiful existence
+      and all the happiness you bring into our lives.
+    </p>
+
+    <div class="decorations">🌷 🦋 ✨ 🎀 ✨ 🦋 🌷</div>
+  </section>
+
+  <section class="cake-section">
+    <div class="section-label">A WISH JUST FOR YOU</div>
+
+    <div class="cake">
+      <div class="candles">
+        @for (candle of [1, 2, 3]; track candle) {
+          <div class="candle" [class.extinguished]="!candlesLit">
+            @if (candlesLit) {
+              <span class="flame">♥</span>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="icing"></div>
+      <div class="cake-layer top-layer"></div>
+      <div class="cake-layer bottom-layer"></div>
+      <div class="cake-plate"></div>
+    </div>
+
+
+@if (!wishMade) {
+  <p class="wish-text">
+    Close your eyes, make a wish, and blow out the candles! 💗
+  </p>
+
+  <button
+    class="primary-button"
+    type="button"
+    (click)="makeWish()">
+    Blow out candles ✨
+  </button>
+} @else {
+  <p class="wish-text wish-success">
+    Your wish is on its way to the stars! 💗
+  </p>
+
+  <div class="wish-stars">✨ 🎉 💕 🎉 ✨</div>
+}
+
+
+  </section>
+
+  <section class="memory-intro">
+    <p class="eyebrow">LITTLE PIECES OF FOREVER</p>
+    <h2>Our favourite memories 📸</h2>
+
+    <p class="memory-description">
+      Tiny moments, silly smiles, unforgettable days
+      and all the memories that make us who we are.
+    </p>
+
+    <div class="polaroid-grid">
+      @for (memory of memories; track memory.image; let i = $index) {
+        <article
+          class="polaroid"
+          [style.--rotation]="memory.rotation"
+          [class.polaroid-even]="i % 2 === 0"
+        >
+          <div class="photo-frame">
+            <span class="photo-tape"></span>
+
+            <img
+              [src]="memory.image"
+              [alt]="memory.caption"
+              loading="lazy"
+            />
+          </div>
+
+          <p class="polaroid-caption">{{ memory.caption }}</p>
+          <span class="polaroid-date">{{ memory.date }}</span>
+        </article>
+      }
+    </div>
+
+    <p class="memory-footer">
+      A thousand pictures, a million feelings, one beautiful story. ♡
+    </p>
+  </section>
+
+  <section class="next-section">
+    <div>
+      <p class="eyebrow">A LITTLE MORE LOVE</p>
+      <h2>Letters from your people 💌</h2>
+      <p>
+        Your favourite people have something special to tell you.
+      </p>
+    </div>
+
+    <button class="primary-button" (click)="openMessages()">
+      Open family messages ♡
+    </button>
+  </section>
+
+  <footer>
+    <p>Collected memories, endless love and a million little reasons. ♡</p>
+  </footer>
+</main>

@@ -1,0 +1,45 @@
+
+<main class="final-page">
+  <section class="surprise-card">
+
+    @if (!videoRevealed) {
+      <div class="gift-box">🎁</div>
+
+      <h1>Your Final Surprise! 💗</h1>
+
+      <p>
+        One last little memory lane, made just for you.I know you dont the day you were born so I made this little video to show you how much you are loved and welcomed by all of us. 💖
+      </p>
+
+      <button
+        type="button"
+        class="reveal-button"
+        (click)="openSurprise()">
+        Open your final surprise ✨
+      </button>
+    } @else {
+      <h1>Happy Birthday! 🎂</h1>
+
+      <p class="video-caption">
+        This little surprise is just for you 💕
+      </p>
+
+      <video
+        class="birthday-video"
+        controls
+        autoplay
+        playsinline
+        preload="metadata">
+        <source
+          src="/assets/videos/family-surprise.mp4"
+          type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+
+      <p class="closing-message">
+        You deserve all the happiness in the world. 💖
+      </p>
+    }
+
+  </section>
+</main>

@@ -1,0 +1,223 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.login-page {
+  min-height: 100vh;
+  padding: 32px 18px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 15%, #fbd9e5 0, transparent 35%),
+    radial-gradient(ellipse at 90% 85%, #ded7ff 0, transparent 38%),
+    #fff9f1;
+  color: #775a70;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.scrapbook-card {
+  width: min(100%, 440px);
+  position: relative;
+  padding: 44px 34px 30px;
+  text-align: center;
+  background: #fffdfb;
+  border: 1px solid #f0dce5;
+  border-radius: 8px 8px 26px 8px;
+  box-shadow: 9px 12px 0 #eedde8, 0 24px 60px #b89ab52a;
+//   transform: rotate(-1deg);
+  animation: appear 0.8s ease both;
+}
+
+.sticker {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  padding: 7px 16px;
+  background: #e9dfff;
+  color: #8d73a3;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.envelope {
+  margin: 5px 0 12px;
+  font-size: 66px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.eyebrow {
+  color: #c27e9d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+h1 {
+  margin: 18px 0;
+  color: #a66f91;
+  font-family: Georgia, serif;
+  font-size: clamp(35px, 8vw, 45px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.description {
+  max-width: 300px;
+  margin: 0 auto 25px;
+  color: #968291;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  margin: 13px 0 7px;
+  color: #896b80;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ead9e5;
+  border-radius: 12px;
+  background: #fff9fc;
+  color: #775a70;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #d49abb;
+  box-shadow: 0 0 0 3px #f8e8f1;
+}
+
+button {
+  margin-top: 23px;
+  padding: 15px;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(110deg, #e6a6c1, #c4afea);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px #d8bfdc80;
+}
+
+button:focus-visible {
+  outline: 3px solid #a66f91;
+  outline-offset: 3px;
+}
+
+.error-message {
+  margin: 12px 0 0;
+  color: #bd5277;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.bottom-note {
+  margin: 25px 0 0;
+  color: #b393a8;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.floating-heart {
+  position: absolute;
+  color: #d9a2bf;
+  font-size: 35px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.heart-one {
+  top: 13%;
+  left: 12%;
+}
+
+.heart-two {
+  right: 12%;
+  top: 25%;
+  animation-delay: 1s;
+}
+
+.heart-three {
+  bottom: 12%;
+  left: 16%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) rotate(-1deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-1deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .scrapbook-card {
+    padding: 40px 23px 26px;
+  }
+
+  .heart-one {
+    left: 3%;
+  }
+
+  .heart-two {
+    right: 3%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

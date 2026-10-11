@@ -1,0 +1,87 @@
+<main class="messages-page">
+  <header class="page-header">
+    <button class="back-button" (click)="backToHome()">
+      ← Back to birthday
+    </button>
+
+    <p class="eyebrow">LITTLE ENVELOPES, BIG LOVE</p>
+    <h1>Letters for you 💌</h1>
+
+    <p class="intro">
+      A few little words from the people who love you most.
+      Open each envelope to discover your surprise.
+    </p>
+  </header>
+
+  <section class="envelope-grid">
+    @for (message of familyMessages; track message.id) {
+      <button
+        type="button"
+        class="envelope-card"
+        [class.opened]="message.opened"
+        (click)="openMessage(message)"
+      >
+        <span class="envelope-emoji">
+          {{ message.opened ? '💌' : '✉️' }}
+        </span>
+
+        <span class="envelope-name">{{ message.name }}</span>
+        <span class="envelope-relation">{{ message.relation }}</span>
+
+        <span class="envelope-action">
+          {{ message.opened ? 'Read again ♡' : 'Tap to open ♡' }}
+        </span>
+      </button>
+    }
+  </section>
+
+  @if (selectedMessage; as message) {
+    <div class="letter-overlay" (click)="closeMessage()">
+      <article
+        class="letter-card"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Message from {{ message.name }}"
+        (click)="$event.stopPropagation()"
+      >
+        <button
+          type="button"
+          class="close-button"
+          aria-label="Close letter"
+          (click)="closeMessage()"
+        >
+          ×
+        </button>
+
+        <div class="letter-decoration">{{ message.emoji }}</div>
+        <p class="eyebrow">A LITTLE LETTER FROM</p>
+        <h2>{{ message.name }}</h2>
+
+        <p class="letter-text">{{ message.message }}</p>
+
+        <audio controls preload="none">
+          <source [src]="message.audio" type="audio/mpeg" />
+          Your browser does not support audio playback.
+        </audio>
+
+        <p class="letter-footer">With all my love, always ♡</p>
+
+        <button
+          type="button"
+          class="close-letter-button"
+          (click)="closeMessage()"
+        >
+          Keep this memory ♡
+        </button>
+      </article>
+    </div>
+  }
+
+  <footer class="final-invitation">
+    <p>There is one more little surprise waiting for you... ✨</p>
+
+    <button type="button" class="next-button" (click)="goToFinal()">
+      Continue to your final surprise 💗
+    </button>
+  </footer>
+</main>

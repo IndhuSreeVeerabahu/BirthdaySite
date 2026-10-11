@@ -1,0 +1,49 @@
+<main class="login-page">
+  <span class="floating-heart heart-one">♡</span>
+  <span class="floating-heart heart-two">♥</span>
+  <span class="floating-heart heart-three">✿</span>
+
+  <section class="scrapbook-card">
+    <div class="sticker">MADE WITH LOVE</div>
+
+    <div class="envelope">💌</div>
+
+    <p class="eyebrow">A LITTLE SURPRISE AWAITS</p>
+
+    <h1>Hey, birthday<br />Dharaniiiii! ✨</h1>
+
+    <p class="description">
+      To the little one who brought love and chaos into our lives — 90% torture, 10% love, and 100% our favourite naughty child! 😂💕 Always our little troublemaker, forever our favourite! 🥹💖
+    </p>
+
+    <form (ngSubmit)="unlockSurprise()">
+      <label for="birthday-name">What should we call you?</label>
+      <input
+        id="birthday-name"
+        name="birthdayName"
+        type="text"
+        [(ngModel)]="enteredName"
+        placeholder="Type your name[Dharani Subha V]"
+        autocomplete="username"
+        required
+      />
+
+      <label for="birthday-password">The day you come into our lives 💗</label>
+<input
+  id="birthday-password"
+  name="birthdayPassword"
+  type="date"
+  [(ngModel)]="enteredPassword"
+  required
+/>
+
+      @if (errorMessage) {
+        <p class="error-message" role="alert">{{ errorMessage }}</p>
+      }
+
+      <button type="submit">Unlock my surprise ♡</button>
+    </form>
+
+    <p class="bottom-note">A little magic, made just for you 🌷</p>
+  </section>
+</main>
